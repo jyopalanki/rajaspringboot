@@ -29,7 +29,6 @@ public class FlightBookingService {
 		passengerInfo = passengerInfoRepository.save(passengerInfo);
 		
 		PaymentInfo paymentInfo = request.getPaymentInfo();
-		System.out.println("this is example");
 		PaymentUtils.validateCreditLimit(paymentInfo.getAccountNo(),passengerInfo.getFare());
 		paymentInfo.setPassengerId(passengerInfo.getPId());
 		paymentInfo.setAmount(passengerInfo.getFare());
