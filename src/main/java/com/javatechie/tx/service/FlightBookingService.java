@@ -26,7 +26,7 @@ public class FlightBookingService {
 		
 		PassengerInfo passengerInfo = request.getPassengerInfo();
 		passengerInfo = passengerInfoRepository.save(passengerInfo);
-		system.out.println("this is pull request");
+		System.out.println("this is pull request");
 		PaymentInfo paymentInfo = request.getPaymentInfo();
 		PaymentUtils.validateCreditLimit(paymentInfo.getAccountNo(),passengerInfo.getFare());
 		paymentInfo.setPassengerId(passengerInfo.getPId());
