@@ -26,12 +26,12 @@ public class FlightBookingService {
 		
 		PassengerInfo passengerInfo = request.getPassengerInfo();
 		passengerInfo = passengerInfoRepository.save(passengerInfo);
-		
 		PaymentInfo paymentInfo = request.getPaymentInfo();
 		PaymentUtils.validateCreditLimit(paymentInfo.getAccountNo(),passengerInfo.getFare());
 		paymentInfo.setPassengerId(passengerInfo.getPId());
 		paymentInfo.setAmount(passengerInfo.getFare());
 		paymentInfoRepository.save(paymentInfo);
+		//this is comment from raja
 		return new FlightBookingAcknowledgement("SUCCESS",passengerInfo.getFare(),UUID.randomUUID().toString().split("-")[0],passengerInfo);
 		
 		
